@@ -6,7 +6,8 @@ class City < ActiveRecord::Base
   extend OneCode::ClassMethods
 
   def city_openings(first_date, last_date)
-    openings(first_date, last_date)
+    city_neighborhood_openings(first_date, last_date)
+    # Listing.joins(:reservations).where.not("checkin <= ? AND checkout >= ?", first_date, last_date).distinct
   end
 end
 
